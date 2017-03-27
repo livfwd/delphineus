@@ -4,9 +4,9 @@ var GitHubStrategy = require('passport-github2').Strategy;
 var User = require('./models').User;
 
 module.exports = passport.use(new GitHubStrategy({
-  clientID: process.env.GITHUB_ID || GITHUB.clientID,
-  clientSecret: process.env.GITHUB_SECRET || GITHUB.clientSecret,
-  callbackURL: 'http://127.0.0.1:3000/auth/github/callback'
+  clientID: process.env.GITHUB_ID,
+  clientSecret: process.env.GITHUB_SECRET,
+  callbackURL: 'http://glacial-inlet-40419.herokuapp.com/auth/github/callback'
 },
   function(accessToken, refreshToken, profile, done) {
     User.findOne({
